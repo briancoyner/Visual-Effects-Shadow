@@ -1,6 +1,6 @@
 # Add a drop shadow to a `UIVisualEffectView`
 
-This demo shows how to add a drop shadow to a `UIVisualEffectView`. The solution involves using/ creating a 9-part `UImage` to represent the shadow. The effect is similar to the iOS 10 Maps app. 
+This demo shows how to add a drop shadow to a `UIVisualEffectView`. The solution involves using/ creating a 9-part `UIImage` to represent the shadow. The effect is similar to the iOS 10 Maps app. 
 
 ## Related Post
 
