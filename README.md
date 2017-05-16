@@ -4,7 +4,7 @@ This demo shows how to add a drop shadow to a `UIVisualEffectView`. The solution
 
 ## Related Post
 
-View related post: todo
+View related post: https://briancoyner.github.io/2017/05/15/uivisualeffectview-with-drop-shadow.html
 
 ## Sample Project Notes
 
