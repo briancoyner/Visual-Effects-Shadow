@@ -32,15 +32,15 @@ final class MainViewController: UIViewController {
         view.addSubview(passThroughView)
 
         passThroughViewHeightConstraint = passThroughView.heightAnchor.constraint(equalToConstant: 0)
-        passThroughViewBottomConstraint = passThroughView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -32)
+        passThroughViewBottomConstraint = passThroughView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32)
 
         NSLayoutConstraint.activate([
             mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mapView.topAnchor.constraint(equalTo: view.topAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            passThroughView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: 16.0),
+
+            passThroughView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16.0),
             passThroughView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             passThroughView.widthAnchor.constraint(greaterThanOrEqualToConstant: 240),
             passThroughViewBottomConstraint
@@ -156,7 +156,7 @@ extension MainViewController {
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomGripBar.topAnchor),
-            
+
             bottomGripBar.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             bottomGripBar.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             bottomGripBar.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
