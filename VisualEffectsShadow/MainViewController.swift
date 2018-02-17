@@ -11,6 +11,10 @@ import MapKit
 /// - full screen `MKMapView`
 /// - a resizable `PassThroughView` centered over the map view
 ///
+/// You can switch the map type between `.standard` and `.hybrid` by tapping a "Switch Map Type" button.
+/// - `.standard` renders the visual effect view as "light" (with shadow)
+/// - `.hybrid` renders the visual effect view as "dark" (no shadow)
+///
 /// There are two "debug" options in this demo:
 /// - show/ hide the generated shadow image cap inset lines
 /// - show/ hide the shadow
@@ -45,21 +49,44 @@ final class MainViewController: UIViewController {
             passThroughView.widthAnchor.constraint(greaterThanOrEqualToConstant: 240),
             passThroughViewBottomConstraint
         ])
+
+        transition(to: .standard)
     }
 }
+
+// MARK: User Interactions (Buttons)
 
 extension MainViewController {
 
     @objc
-    fileprivate func userWantsToToggleCapInsetLines(sender: UIButton) {
+    fileprivate func userWantsToSwitchMapType() {
+        let mapType: MKMapType = (mapView.mapType == .standard) ? .hybrid : .standard
+        transition(to: mapType)
+    }
+
+    fileprivate func transition(to mapType: MKMapType) {
+        switch mapType {
+        case .standard:
+            mapView.mapType = .standard
+            passThroughView.theme = .light
+        default:
+            mapView.mapType = .hybrid
+            passThroughView.theme = .dark
+        }
+    }
+
+    @objc
+    fileprivate func userWantsToToggleCapInsetLines() {
         passThroughView.showCapInsetLines = !passThroughView.showCapInsetLines
     }
 
     @objc
-    fileprivate func userWantsToToggleShadow(sender: UIButton) {
+    fileprivate func userWantsToToggleShadow() {
         passThroughView.showShadow = !passThroughView.showShadow
     }
 }
+
+// MARK: User Interactions (Resizing Debug View)
 
 extension MainViewController {
 
@@ -118,6 +145,8 @@ extension MainViewController {
     }
 }
 
+// MARK: Lazy View Creation
+
 extension MainViewController {
 
     fileprivate func lazyMapView() -> MKMapView {
@@ -145,10 +174,10 @@ extension MainViewController {
 extension MainViewController {
 
     fileprivate func addContent(to contentView: UIView) {
-        let stackView = createStackView()
+        let stackView = makeStackView()
         contentView.addSubview(stackView)
 
-        let bottomGripBar = createGripBarView()
+        let bottomGripBar = makeGripBarView()
         contentView.addSubview(bottomGripBar)
 
         NSLayoutConstraint.activate([
@@ -164,10 +193,11 @@ extension MainViewController {
         ])
     }
 
-    private func createStackView() -> UIStackView {
+    private func makeStackView() -> UIStackView {
         let stackView = UIStackView(arrangedSubviews: [
-            createToggleShadowButton(),
-            createToggleCapInsetsButton()
+            makeSwitchMapTypeButton(),
+            makeToggleShadowButton(),
+            makeToggleCapInsetsButton()
         ])
 
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -179,15 +209,19 @@ extension MainViewController {
         return stackView
     }
 
-    private func createToggleCapInsetsButton() -> UIButton {
-        return createButton(with: "Toggle Cap Insets", selector: #selector(userWantsToToggleCapInsetLines(sender:)))
+    private func makeSwitchMapTypeButton() -> UIButton {
+        return makeButton(with: "Switch Map Type", selector: #selector(userWantsToSwitchMapType))
     }
 
-    private func createToggleShadowButton() -> UIButton {
-        return createButton(with: "Toggle Shadow", selector: #selector(userWantsToToggleShadow(sender:)))
+    private func makeToggleCapInsetsButton() -> UIButton {
+        return makeButton(with: "Toggle Cap Insets", selector: #selector(userWantsToToggleCapInsetLines))
     }
 
-    private func createButton(with title: String, selector: Selector) -> UIButton {
+    private func makeToggleShadowButton() -> UIButton {
+        return makeButton(with: "Toggle Shadow", selector: #selector(userWantsToToggleShadow))
+    }
+
+    private func makeButton(with title: String, selector: Selector) -> UIButton {
         let view = UIButton(type: .system)
         view.translatesAutoresizingMaskIntoConstraints = false
 
@@ -197,7 +231,7 @@ extension MainViewController {
         return view
     }
 
-    private func createGripBarView() -> GripBarView {
+    private func makeGripBarView() -> GripBarView {
         let view = GripBarView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.tintColor = .lightGray
