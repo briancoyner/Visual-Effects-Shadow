@@ -18,6 +18,9 @@ import MapKit
 /// There are two "debug" options in this demo:
 /// - show/ hide the generated shadow image cap inset lines
 /// - show/ hide the shadow
+///
+/// The button text colors are the standard "blue" tint color. The example could be improved by adapting
+/// the button text color to the "light" and "dark" blur effects (similar to the iOS Maps app).
 
 final class MainViewController: UIViewController {
 
@@ -50,7 +53,22 @@ final class MainViewController: UIViewController {
             passThroughViewBottomConstraint
         ])
 
+        // Let's always start by showing the "standard" map type.
         transition(to: .standard)
+    }
+}
+
+extension MainViewController {
+    
+    fileprivate func transition(to mapType: MKMapType) {
+        switch mapType {
+        case .standard:
+            mapView.mapType = .standard
+            passThroughView.theme = .light
+        default:
+            mapView.mapType = .hybrid
+            passThroughView.theme = .dark
+        }
     }
 }
 
@@ -62,17 +80,6 @@ extension MainViewController {
     fileprivate func userWantsToSwitchMapType() {
         let mapType: MKMapType = (mapView.mapType == .standard) ? .hybrid : .standard
         transition(to: mapType)
-    }
-
-    fileprivate func transition(to mapType: MKMapType) {
-        switch mapType {
-        case .standard:
-            mapView.mapType = .standard
-            passThroughView.theme = .light
-        default:
-            mapView.mapType = .hybrid
-            passThroughView.theme = .dark
-        }
     }
 
     @objc
