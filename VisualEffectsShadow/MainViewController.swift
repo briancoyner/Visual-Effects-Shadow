@@ -24,8 +24,8 @@ import MapKit
 
 final class MainViewController: UIViewController {
 
-    fileprivate lazy var mapView: MKMapView = self.lazyMapView()
-    fileprivate lazy var passThroughView: PassThroughView = self.lazyPassThroughView()
+    fileprivate lazy var mapView = self.lazyMapView()
+    fileprivate lazy var passThroughView = self.lazyPassThroughView()
 
     fileprivate var passThroughViewHeightConstraint: NSLayoutConstraint!
     fileprivate var passThroughViewBottomConstraint: NSLayoutConstraint!
@@ -123,9 +123,17 @@ extension MainViewController {
                 passThroughViewHeightConstraint.constant = 144.0
             }
 
-            UIView.animate(withDuration: 0.6, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0, options: .curveLinear, animations: {
-                self.view.layoutIfNeeded()
-            }, completion: nil)
+            UIView.animate(
+                withDuration: 0.6,
+                delay: 0.0,
+                usingSpringWithDamping: 0.7,
+                initialSpringVelocity: 0,
+                options: .curveLinear,
+                animations: {
+                    self.view.layoutIfNeeded()
+                },
+                completion: nil
+            )
         default:
             break
         }

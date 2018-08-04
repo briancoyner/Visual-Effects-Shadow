@@ -53,8 +53,8 @@ final class PassThroughView: UIView {
         }
     }
 
-    fileprivate lazy var shadowView: UIImageView = self.lazyShadowView()
-    fileprivate lazy var visualEffectView: UIVisualEffectView = self.lazyVisualEffectView()
+    fileprivate lazy var shadowView = self.lazyShadowView()
+    fileprivate lazy var visualEffectView = self.lazyVisualEffectView()
 
     convenience init() {
         self.init(frame: CGRect())

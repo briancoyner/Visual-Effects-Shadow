@@ -10,8 +10,8 @@ import UIKit
 
 final class GripBarView: UIView {
 
-    fileprivate lazy var barLayer: CAShapeLayer = self.lazyBarLayer()
-    fileprivate lazy var separatorLine: UIView = self.lazySeparatorLine()
+    fileprivate lazy var barLayer = self.lazyBarLayer()
+    fileprivate lazy var separatorLine = self.lazySeparatorLine()
 
     init() {
         super.init(frame: CGRect())
