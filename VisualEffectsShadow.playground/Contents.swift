@@ -2,7 +2,7 @@ import UIKit
 import XCPlayground
 import PlaygroundSupport
 
-// Note: you'll need to rebuild the embedded framework to pick up changes to the `UIImage+Shadow`.
+// Note: you'll need to rebuild the embedded framework to pick up changes to the `UIImage+Shadow` (Simualtor build).
 import VisualEffectsUI
 
 let cornerRadius: CGFloat = 100.0 // The radius is larger than normal so it's easier to visually see the generated image.
