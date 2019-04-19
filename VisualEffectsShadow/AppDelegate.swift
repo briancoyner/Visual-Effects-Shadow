@@ -3,7 +3,10 @@
 //  Copyright © 2017 Brian Coyner. All rights reserved.
 //
 
+import Foundation
 import UIKit
+
+import VisualEffectsUI
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -12,7 +15,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate {
 
-    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let mainViewController = MainViewController()
         window?.rootViewController = UINavigationController(rootViewController: mainViewController)
         window?.makeKeyAndVisible()

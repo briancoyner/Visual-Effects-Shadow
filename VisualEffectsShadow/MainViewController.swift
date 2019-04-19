@@ -7,6 +7,8 @@ import Foundation
 import UIKit
 import MapKit
 
+import VisualEffectsUI
+
 /// A "demo" view controller with the following:
 /// - full screen `MKMapView`
 /// - a resizable `PassThroughView` centered over the map view
@@ -29,6 +31,9 @@ final class MainViewController: UIViewController {
 
     fileprivate var passThroughViewHeightConstraint: NSLayoutConstraint!
     fileprivate var passThroughViewBottomConstraint: NSLayoutConstraint!
+}
+
+extension MainViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

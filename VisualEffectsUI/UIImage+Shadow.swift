@@ -1,5 +1,6 @@
 //
 //  Created by Brian M Coyner on 5/11/17.
+//  Copyright © 2017 Brian Coyner. All rights reserved.
 //
 
 import Foundation
