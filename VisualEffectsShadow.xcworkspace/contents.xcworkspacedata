@@ -4,7 +4,4 @@
    <FileRef
       location = "container:VisualEffectsShadow.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:VisualEffectsShadow.playground">
-   </FileRef>
 </Workspace>

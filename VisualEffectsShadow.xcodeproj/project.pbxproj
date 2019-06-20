@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,8 +12,6 @@
 		5D5D20D01EC65ED5001B226E /* PassThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D20C71EC65ED5001B226E /* PassThroughView.swift */; };
 		5D5D20D11EC65ED5001B226E /* GripBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D20C81EC65ED5001B226E /* GripBarView.swift */; };
 		5D5D20D51EC65ED5001B226E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D20CC1EC65ED5001B226E /* Assets.xcassets */; };
-		5D8645ED1EC9041A00F801FF /* VisualEffectsUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D8645EB1EC9041A00F801FF /* VisualEffectsUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5D8645F31EC9045500F801FF /* UIImage+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8645F21EC9045500F801FF /* UIImage+Shadow.swift */; };
 		5D8645F41EC904C700F801FF /* UIImage+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8645F21EC9045500F801FF /* UIImage+Shadow.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,9 +22,6 @@
 		5D5D20C71EC65ED5001B226E /* PassThroughView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassThroughView.swift; sourceTree = "<group>"; };
 		5D5D20C81EC65ED5001B226E /* GripBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GripBarView.swift; sourceTree = "<group>"; };
 		5D5D20CC1EC65ED5001B226E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5D8645E91EC9041A00F801FF /* VisualEffectsUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VisualEffectsUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D8645EB1EC9041A00F801FF /* VisualEffectsUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisualEffectsUI.h; sourceTree = "<group>"; };
-		5D8645EC1EC9041A00F801FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D8645F21EC9045500F801FF /* UIImage+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Shadow.swift"; sourceTree = "<group>"; };
 		5D9C1B0B21FCA4CB008F0F9B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5DBDB18F1EC65E24008C4DC1 /* VisualEffectsShadow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VisualEffectsShadow.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,13 +29,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5D8645E51EC9041A00F801FF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5DBDB18C1EC65E24008C4DC1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -51,24 +39,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5D8645EA1EC9041A00F801FF /* VisualEffectsUI */ = {
-			isa = PBXGroup;
-			children = (
-				5D8645F21EC9045500F801FF /* UIImage+Shadow.swift */,
-				5D8645EB1EC9041A00F801FF /* VisualEffectsUI.h */,
-				5D8645EC1EC9041A00F801FF /* Info.plist */,
-			);
-			path = VisualEffectsUI;
-			sourceTree = "<group>";
-		};
-		5D8645F11EC9042800F801FF /* Embedded Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5D8645EA1EC9041A00F801FF /* VisualEffectsUI */,
-			);
-			name = "Embedded Frameworks";
-			sourceTree = "<group>";
-		};
 		5D9C1B0A21FCA4CB008F0F9B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -81,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				5DBDB1911EC65E24008C4DC1 /* VisualEffectsShadow */,
-				5D8645F11EC9042800F801FF /* Embedded Frameworks */,
 				5DBDB1901EC65E24008C4DC1 /* Products */,
 				5D9C1B0A21FCA4CB008F0F9B /* Frameworks */,
 			);
@@ -91,7 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				5DBDB18F1EC65E24008C4DC1 /* VisualEffectsShadow.app */,
-				5D8645E91EC9041A00F801FF /* VisualEffectsUI.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +71,7 @@
 				5D5D20C51EC65ED5001B226E /* MainViewController.swift */,
 				5D5D20C71EC65ED5001B226E /* PassThroughView.swift */,
 				5D5D20C81EC65ED5001B226E /* GripBarView.swift */,
+				5D8645F21EC9045500F801FF /* UIImage+Shadow.swift */,
 				5D5D20CC1EC65ED5001B226E /* Assets.xcassets */,
 				5DBDB19E1EC65E24008C4DC1 /* Info.plist */,
 				5D1E54D31F4E573D003FD1ED /* SampleCode.xcconfig */,
@@ -112,36 +81,7 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		5D8645E61EC9041A00F801FF /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5D8645ED1EC9041A00F801FF /* VisualEffectsUI.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		5D8645E81EC9041A00F801FF /* VisualEffectsUI */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5D8645F01EC9041A00F801FF /* Build configuration list for PBXNativeTarget "VisualEffectsUI" */;
-			buildPhases = (
-				5D8645E41EC9041A00F801FF /* Sources */,
-				5D8645E51EC9041A00F801FF /* Frameworks */,
-				5D8645E61EC9041A00F801FF /* Headers */,
-				5D8645E71EC9041A00F801FF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = VisualEffectsUI;
-			productName = VisualEffectsUI;
-			productReference = 5D8645E91EC9041A00F801FF /* VisualEffectsUI.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		5DBDB18E1EC65E24008C4DC1 /* VisualEffectsShadow */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DBDB1A11EC65E24008C4DC1 /* Build configuration list for PBXNativeTarget "VisualEffectsShadow" */;
@@ -166,14 +106,9 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "High Rail, LLC";
 				TargetAttributes = {
-					5D8645E81EC9041A00F801FF = {
-						CreatedOnToolsVersion = 8.3.1;
-						LastSwiftMigration = 1020;
-						ProvisioningStyle = Manual;
-					};
 					5DBDB18E1EC65E24008C4DC1 = {
 						CreatedOnToolsVersion = 8.3.2;
 						LastSwiftMigration = 1020;
@@ -182,7 +117,7 @@
 				};
 			};
 			buildConfigurationList = 5DBDB18A1EC65E24008C4DC1 /* Build configuration list for PBXProject "VisualEffectsShadow" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -195,19 +130,11 @@
 			projectRoot = "";
 			targets = (
 				5DBDB18E1EC65E24008C4DC1 /* VisualEffectsShadow */,
-				5D8645E81EC9041A00F801FF /* VisualEffectsUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5D8645E71EC9041A00F801FF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5DBDB18D1EC65E24008C4DC1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -219,14 +146,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5D8645E41EC9041A00F801FF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5D8645F31EC9045500F801FF /* UIImage+Shadow.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5DBDB18B1EC65E24008C4DC1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -242,60 +161,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		5D8645EE1EC9041A00F801FF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D1E54D31F4E573D003FD1ED /* SampleCode.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = VisualEffectsUI/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.highrailcompany.VisualEffectsUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		5D8645EF1EC9041A00F801FF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5D1E54D31F4E573D003FD1ED /* SampleCode.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = VisualEffectsUI/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.highrailcompany.VisualEffectsUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		5DBDB19F1EC65E24008C4DC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5D1E54D31F4E573D003FD1ED /* SampleCode.xcconfig */;
@@ -332,6 +197,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
 		};
@@ -343,6 +209,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KC5B683642;
 				INFOPLIST_FILE = VisualEffectsShadow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -362,6 +229,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KC5B683642;
 				INFOPLIST_FILE = VisualEffectsShadow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,15 +244,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5D8645F01EC9041A00F801FF /* Build configuration list for PBXNativeTarget "VisualEffectsUI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5D8645EE1EC9041A00F801FF /* Debug */,
-				5D8645EF1EC9041A00F801FF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		5DBDB18A1EC65E24008C4DC1 /* Build configuration list for PBXProject "VisualEffectsShadow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
