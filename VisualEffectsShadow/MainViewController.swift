@@ -7,8 +7,6 @@ import Foundation
 import UIKit
 import MapKit
 
-import VisualEffectsUI
-
 /// A "demo" view controller with the following:
 /// - full screen `MKMapView`
 /// - a resizable `PassThroughView` centered over the map view
@@ -66,13 +64,18 @@ extension MainViewController {
 extension MainViewController {
     
     fileprivate func transition(to mapType: MKMapType) {
+
+        // If the user selects a "dark" map type (i.e. arial imagery), then
+        // force this view controller and its subviews to use "dark mode".
+        // This mimics the Maps app.
+
         switch mapType {
         case .standard:
             mapView.mapType = .standard
-            passThroughView.theme = .light
+            overrideUserInterfaceStyle = .unspecified
         default:
             mapView.mapType = .hybrid
-            passThroughView.theme = .dark
+            overrideUserInterfaceStyle = .dark
         }
     }
 }
@@ -176,7 +179,6 @@ extension MainViewController {
         view.mapType = .standard
         view.showsTraffic = true
         view.showsBuildings = true
-        view.showsPointsOfInterest = true
 
         return view
     }
@@ -254,7 +256,9 @@ extension MainViewController {
     private func makeGripBarView() -> GripBarView {
         let view = GripBarView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.tintColor = .lightGray
+
+        // This is a semantic color that adapts to style changes.
+        view.tintColor = .separator
 
         view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(userDidPan(_:))))
 

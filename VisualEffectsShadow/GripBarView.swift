@@ -44,7 +44,7 @@ extension GripBarView {
         super.layoutSubviews()
 
         let width = bounds.width * 0.15
-        let height: CGFloat = 6.0
+        let height: CGFloat = 4.0
         let rect = CGRect(x: bounds.midX - (width / 2.0), y: bounds.midY - (height / 2.0), width: width, height: height)
         barLayer.path = UIBezierPath(roundedRect: rect, cornerRadius: rect.height / 2.0).cgPath
     }
@@ -61,7 +61,7 @@ extension GripBarView {
     fileprivate func lazySeparatorLine() -> UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .separator
 
         return view
     }

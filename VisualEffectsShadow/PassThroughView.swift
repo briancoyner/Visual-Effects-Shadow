@@ -7,10 +7,12 @@ import Foundation
 import UIKit
 
 /// The view has the following features:
-/// - theme (light or dark)
 /// - drop shadow provided by a dynamically generated 9-part image.
 /// - rounded corners
 /// - live blur effect
+/// - automatically adjusts for changes to the `UIUserInterfaceStyle` (i.e. light/dark)
+///   - if `.light`, then a drop shadow displays; blur effect is "light material"
+///   - if `.dark`, then the drop shadow is hidden; blur effect is "dark material"
 ///
 /// Developers add subviews to the `contentView` property.
 /// Developers should not add subviews directly to this view.
@@ -18,17 +20,6 @@ import UIKit
 /// - SeeAlso: `UIImage+Shadow`
 
 final class PassThroughView: UIView {
-
-    enum Theme {
-        case light
-        case dark
-    }
-
-    var theme: Theme = .light {
-        didSet {
-            transition(to: theme)
-        }
-    }
 
     // Developers add subviews to the `contentView`.
     var contentView: UIView {
@@ -98,8 +89,33 @@ final class PassThroughView: UIView {
 
 extension PassThroughView {
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            transition(to: traitCollection.userInterfaceStyle)
+        }
+    }
+
+    private func transition(to style: UIUserInterfaceStyle) {
+        switch style {
+        case .light, .unspecified:
+            showShadow = true
+        case .dark:
+            showShadow = false
+        @unknown default:
+            fatalError()
+        }
+    }
+}
+
+extension PassThroughView {
+
     fileprivate func lazyVisualEffectView() -> UIVisualEffectView {
-        let view = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+
+        // The "system thin" material automatically adapts to changes to the `UIUserInterfaceStyle`.
+        // The only we need to do here is show/ hide the shadow.
+        let view = UIVisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = Properties.cornerRadius
         view.layer.masksToBounds = true
@@ -142,22 +158,8 @@ extension PassThroughView {
 
 extension PassThroughView {
 
-    fileprivate func transition(to theme: Theme) {
-        switch theme {
-        case .light:
-            visualEffectView.effect = UIBlurEffect(style: .extraLight)
-            showShadow = true
-        case .dark:
-            visualEffectView.effect = UIBlurEffect(style: .dark)
-            showShadow = false
-        }
-    }
-}
-
-extension PassThroughView {
-
     private enum Properties {
         static let cornerRadius: CGFloat = 10.0
-        static let shadow: Shadow = Shadow(offset: CGSize(), blur: 6.0, color: .lightGray)
+        static let shadow: Shadow = Shadow(offset: CGSize(), blur: 6.0, color: .systemGray)
     }
 }

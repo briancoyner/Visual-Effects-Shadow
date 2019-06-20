@@ -6,8 +6,6 @@
 import Foundation
 import UIKit
 
-import VisualEffectsUI
-
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow? = UIWindow()
